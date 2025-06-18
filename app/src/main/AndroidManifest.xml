@@ -1,0 +1,64 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Permissions for clipboard access -->
+    <uses-permission android:name="android.permission.READ_CLIPBOARD_IN_BACKGROUND" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+            android:allowBackup="false"
+            android:icon="@drawable/ic_paste"
+            android:label="@string/app_name">
+
+        <!-- Activity that handles various content selection intents -->
+        <activity
+            android:name=".PasteActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.DeviceDefault.Dialog"
+            android:windowSoftInputMode="stateHidden">
+            
+            <!-- ACTION_GET_CONTENT for images -->
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            
+            <!-- ACTION_GET_CONTENT for all types -->
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            
+            <!-- ACTION_PICK for images -->
+            <intent-filter>
+                <action android:name="android.intent.action.PICK" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+            
+            <!-- ACTION_PICK for all types -->
+            <intent-filter>
+                <action android:name="android.intent.action.PICK" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            
+            <!-- ACTION_CHOOSER for content selection -->
+            <intent-filter>
+                <action android:name="android.intent.action.CHOOSER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            
+            <!-- ACTION_SEND for sharing content -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

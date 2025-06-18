@@ -1,0 +1,9 @@
+# ProGuard rules for release build
+
+# see https://www.guardsquare.com/en/products/proguard/manual/usage/optimizations
+
+#-keepattributes SourceFile,LineNumberTable
+
+-assumevalues class android.os.Build$VERSION {
+    int SDK_INT return 28;
+}

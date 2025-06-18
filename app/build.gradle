@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+//apply plugin: 'kotlin-android-extensions'
+
+android {
+    namespace 'com.github.evidlo.pastefromclipboard'
+    compileSdk 34
+    buildToolsVersion '34.0.0'
+
+    defaultConfig {
+        applicationId "com.github.evidlo.pastefromclipboard"
+        minSdk 28
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        resConfig 'en'
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.txt'
+        }
+    }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        freeCompilerArgs += '-progressive'
+//        freeCompilerArgs += '-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi'
+    }
+
+    packagingOptions {
+        exclude '/DebugProbesKt.bin'
+        exclude '/javax/**'
+        exclude '/okhttp3/**'
+        exclude '/kotlin/**'
+        exclude '/META-INF/*.version'
+        exclude '/META-INF/**.kotlin_module'
+        exclude '/META-INF/proguard/**'
+    }
+    
+    buildFeatures {
+        viewBinding = false
+        aidl = false
+        renderScript = false
+        resValues = false
+        shaders = false
+    }
+
+    dependenciesInfo {
+        includeInApk = false
+        includeInBundle = false
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}

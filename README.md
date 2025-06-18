@@ -1,9 +1,6 @@
 # Paste - Android Clipboard Content Provider
 
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard">
-  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-  <rect x="9" y="2" width="6" height="4" rx="1" ry="1" />
-</svg>
+![screenshot](paste_screenshot.png)
 
 A simple Android application that acts as a content provider for clipboard data. When you select this app from an ACTION_GET_CONTENT intent (like when inserting images in other apps), it will return the latest file URI from your clipboard.
 
